@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suscripción a EELEVEEEN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .paypal-button {
+      margin-top: 20px;
+    }
+  </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AXWKXEGWePhwhiQ10FL7tEniQU_trsBDXwueNqChuleEap0nndBlZxqrAaxQ1W5MHrDVIT4Erj0zcT3g&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+</head>
+<body>
+  <h1>Suscripción a EELEVEEEN</h1>
+  <div id="paypal-button-container-P-1R6907997M141484SM2URCOI" class="paypal-button"></div>
+  <script>
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          plan_id: 'P-1R6907997M141484SM2URCOI'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert('Subscription ID: ' + data.subscriptionID); // Mensaje opcional para el suscriptor
+      }
+    }).render('#paypal-button-container-P-1R6907997M141484SM2URCOI'); // Renderiza el botón de PayPal
+  </script>
+</body>
+</html>
